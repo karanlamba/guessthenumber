@@ -132,7 +132,6 @@ function printStats(data){
             html +="<div class='col list_play_column'>Result: "+play[3]+"</div>";
             html +="<div class='col list_play_column'>Time: "+play[4]+"</div>";
             html +="</div>";
-            console.log(play);
         });
     });
 
