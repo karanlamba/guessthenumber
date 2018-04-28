@@ -1,0 +1,47 @@
+html, body {
+	margin: 0px;
+	height: 100%;
+	width: 100%;
+}
+
+.main{
+	background-color: #F5F5F5;
+	border-radius: 20px;
+	border-style: solid;
+	border-width: 1px;
+	border-color: black;
+	text-align: center;
+	padding: 20px;
+}
+
+.main button {
+	margin: 10px;
+}
+
+/* SATATS PAGE */
+#stats {
+	margin: 20px;
+}
+.list_game {
+	font-weight: bold;
+	font-size: 12px;
+	background-color: gray;
+	border-radius: 10px;
+}
+.list_game_column {
+	background-color: #C0C0C0;
+	border-radius: 5px;
+	width: 18%;
+	float: left;
+	margin: 1%;
+}
+.list_play_column {
+	width: 33%;
+	float: left;
+	font-size: 10px;
+}
+/* SATATS PAGE */
+
+.modal-content {
+	text-align: center;
+}
