@@ -130,13 +130,12 @@ function printStats(data){
             html += "<div class='col list_game_column'>Secret Number <br>"+game[3]+"</div>";
             html += "<div class='col list_game_column'>Completion Time <br>"+game[7]+"</div>";
             html +="</div>";
-        } else {
-            html +="<div class='list_play row'>";
-            html +="<div class='col list_play_column'>Guess: "+game[4]+"</div>";
-            html +="<div class='col list_play_column'>Result: "+game[5]+"</div>";
-            html +="<div class='col list_play_column'>Time: "+game[6]+"</div>";
-            html +="</div>";
         }
+        html +="<div class='list_play row'>";
+        html +="<div class='col list_play_column'>Guess: "+game[4]+"</div>";
+        html +="<div class='col list_play_column'>Result: "+game[5]+"</div>";
+        html +="<div class='col list_play_column'>Time: "+game[6]+"</div>";
+        html +="</div>";
     });
 
     $("#stats h3").html("Here are your statistics");
