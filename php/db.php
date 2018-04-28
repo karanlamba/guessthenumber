@@ -85,6 +85,11 @@ class DBHandler
 	}
 
 	// GET STATISTICS
+	/* 
+		SORRY I FORGOT TO USE LEFT JOIN HERE. IF NEEDED I WILL REDO THIS COMPONENT.
+		SELECT t.game_id, g.status, g.selected_number, g.secret_number, t.guessed_number, t.result, t.datetime 
+		FROM games g LEFT JOIN trials t ON g.id = t.game_id ORDER BY t.datetime
+	*/
 	public function GetStats() {
 		$return_data = [];
 		$games = $this->connection->query("SELECT * FROM games ORDER BY datetime");
