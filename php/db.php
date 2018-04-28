@@ -85,26 +85,21 @@ class DBHandler
 	}
 
 	// GET STATISTICS
-	/* 
-		SORRY I FORGOT TO USE LEFT JOIN HERE. IF NEEDED I WILL REDO THIS COMPONENT.
-		SELECT t.game_id, g.status, g.selected_number, g.secret_number, t.guessed_number, t.result, t.datetime 
-		FROM games g LEFT JOIN trials t ON g.id = t.game_id ORDER BY t.datetime
-	*/
 	public function GetStats() {
-		$return_data = [];
-		$games = $this->connection->query("SELECT * FROM games ORDER BY datetime");
-		$index = 0;
-		foreach ($games as $game) {
-			$return_data[] = $game;
-			$game_plays = $this->connection->query("SELECT * FROM trials WHERE game_id = ".$game["id"]." ORDER BY datetime");
-			$plays = [];
-			foreach ($game_plays as $play) {
-				$plays[] = $play;
-			}
-			$return_data[$index]["plays"] = $plays;
-			$index++;
-		}
-		return $return_data;
+		// GET ALL STATS
+		$query = "
+		SELECT t.game_id, g.status, g.selected_number, g.secret_number, t.guessed_number, t.result, DATE_FORMAT(t.datetime, '%a %b %d, %H:%i:%S') AS datetime, 
+			(SELECT TIMESTAMPDIFF(SECOND, MIN(datetime), MAX(datetime)) AS seconds 
+			FROM trials 
+			WHERE game_id=t.game_id 
+			GROUP BY game_id 
+			ORDER BY game_id) AS seconds
+		FROM games g LEFT JOIN trials t ON g.id = t.game_id 
+		ORDER BY t.datetime
+		";
+		$result = $this->connection->query($query)->fetchAll();
+
+		return $result;
 	}
 
 }

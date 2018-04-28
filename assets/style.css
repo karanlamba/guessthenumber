@@ -27,6 +27,8 @@ html, body {
 	font-size: 12px;
 	background-color: gray;
 	border-radius: 10px;
+	margin-top: 5px;
+	margin-bottom: 5px;
 }
 .list_game_column {
 	background-color: #C0C0C0;
